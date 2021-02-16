@@ -1,20 +1,30 @@
-# pip3 install sphinx 
+"""This is docstring usage example .
+Keyword arguments:
+real -- the real part (default 0.0)
+imag -- the imaginary part (default 0.0)
+"""
 
-""" docstring module """
+
+"""docstring module """
 class ChessPiece:
-    """ this is  ChessPiece class"""
+    """this is  ChessPiece class
+    """
     def __init__(self):
-        """ init of ChessPiece documentation"""
+        """init of ChessPiece documentation
+        """
         pass
 
     def bar1(self):
-        """ init of ChessPiece documentation"""
+        """init of ChessPiece documentation
+        """
         pass
 
-    def bar1(self):
-        """ init of bar1 documentation"""
+    def bar2(self):
+        """init of bar2 documentation
+        """
         pass
 
 def standalone_funcstion():
-    """ init of standalone function documenatation"""
+    """ init of standalone function documenatation
+    """
     pass
