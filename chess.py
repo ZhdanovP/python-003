@@ -1,5 +1,20 @@
 import random
-""" Class Board simulates chess board with 8 random figures"""
+from abc import ABC, abstractmethod
+
+"""Module simulates chess board with 8 random figures
+ and their movement"""
+
+
+class Figure(ABC):
+    __slots__ = ("x", "y")
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    @abstractmethod
+    def step(self, x1, y1):
+        pass
 
 
 class Board:
@@ -12,21 +27,11 @@ class Board:
         d[i][random.randint(0, 7)] = 1
 
 
-""" Class Pawn simulates pawn on chess board"""
+class Pawn(Figure):
+    """ Class Pawn simulates pawn on chess board"""
 
-
-class Pawn:
-    """ Setting pawn position
-    using coordinates from 0 to 7
-    starting from bottom left corner
-    """
-
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    """ Checking possible moves of Pawn on the field -> bolean"""
     def step(self, x1, y1):
+        """ Checking possible moves of Pawn on the field -> bolean"""
         step_possible = False
 
         if (y1 - self.y) == 1 and (self.x - x1) == 0:
@@ -43,20 +48,11 @@ class Pawn:
         return step_possible
 
 
-""" Class King simulates king on chess board"""
+class King(Figure):
+    """ Class King simulates king on chess board"""
 
-
-class King:
-    """ Setting king position
-    using coordinates from 0 to 7
-    starting from bottom left corner
-    """
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    """ Checking possible moves of King on the field -> bolean"""
     def step(self, x1, y1):
+        """ Checking possible moves of King on the field -> bolean"""
         step_possible = False
 
         if abs(self.y - y1) == 1 and abs(self.x - x1) == 0:
@@ -77,20 +73,11 @@ class King:
         return step_possible
 
 
-""" Class Qeen simulates Qeen on chess board"""
+class Qeen(Figure):
+    """ Class Qeen simulates Qeen on chess board"""
 
-
-class Qeen:
-    """ Setting Qeen position
-    using coordinates from 0 to 7
-    starting from bottom left corner
-    """
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    """ Checking possible moves of Qeen on the field -> bolean"""
     def step(self, x1, y1):
+        """ Checking possible moves of Qeen on the field -> bolean"""
         step_possible = False
 
         if abs(self.y - y1) >= 1 and abs(self.x - x1) == 0:
@@ -111,7 +98,7 @@ class Qeen:
         return step_possible
 
 
-# Some tests
+# Some tests to be refactored
 print("Test 0")
 i = 7
 while i > -1:
@@ -129,6 +116,7 @@ print(p1.step(2, 2))
 print(p1.step(4, 5))
 print(p1.step(4, 8))
 print(p1.step(-1, 2))
+
 print("Test 2")
 k1 = King(3, 3)
 print(k1.step(3, 2))
@@ -140,6 +128,7 @@ print(k1.step(2, 2))
 print(k1.step(4, 5))
 print(k1.step(4, 8))
 print(k1.step(-1, 2))
+
 print("Test 3")
 q1 = Qeen(3, 3)
 print(q1.step(0, 0))
