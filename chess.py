@@ -5,6 +5,16 @@ from abc import ABC, abstractmethod
  and their movement"""
 
 
+class Board:
+    """ Generating vhess board with
+        random 8 figures"""
+    d = [0] * 8
+    for i in range(8):
+        d[i] = [0] * 8
+    for i in range(8):
+        d[i][random.randint(0, 7)] = 1
+
+
 class Figure(ABC):
     __slots__ = ("x", "y")
 
@@ -15,16 +25,6 @@ class Figure(ABC):
     @abstractmethod
     def step(self, x1, y1):
         pass
-
-
-class Board:
-    """ Generating vhess board with
-        random 8 figures"""
-    d = [0] * 8
-    for i in range(8):
-        d[i] = [0] * 8
-    for i in range(8):
-        d[i][random.randint(0, 7)] = 1
 
 
 class Pawn(Figure):
