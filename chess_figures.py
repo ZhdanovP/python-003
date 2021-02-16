@@ -39,7 +39,7 @@ def inboard(step_to):
     accept object: ChessPoint
     return: boolean"""
     if (step_to.x not in X) or (step_to.y not in Y):
-        return False
+        raise OutOfBoard
     return True
 
 
@@ -107,7 +107,7 @@ class Queen(Figure):
     def valid(self, step_to: ChessPoint):
         """method defines move rules for queen"""
         if not (self.vertical(step_to) or self.horizontal(step_to) or self.diagonal(step_to)):
-            return False
+            raise InvalidMove
         return True
 
 
@@ -116,7 +116,7 @@ class Bishop(Figure):
     def valid(self, step_to: ChessPoint):
         """method defines move rules for bishop"""
         if not self.diagonal(step_to):
-            return False
+            raise InvalidMove
         return True
 
 
@@ -128,7 +128,7 @@ class Knight(Figure):
                  math.fabs(self.__current_point__.y - step_to.y) == 1) or
                 (math.fabs(ord(self.__current_point__.x) - ord(step_to.x)) == 1 and
                  math.fabs(self.__current_point__.y - step_to.y) == 2)):
-            return False
+            raise InvalidMove
         return True
 
 
@@ -137,7 +137,7 @@ class Rook(Figure):
     def valid(self, step_to: ChessPoint):
         """method defines move rules for rook"""
         if not (self.vertical(step_to) or self.horizontal(step_to)):
-            return False
+            raise InvalidMove
         return True
 
 
@@ -147,18 +147,18 @@ class Pawn(Figure):
         """method defines move rules for pawn"""
         if (self.__color__ == COLOR_WHITE) and (self.__current_point__.y == Y[1]):
             if not (step_to.y == Y[2] and math.fabs(ord(step_to.x) - ord(self.__current_point__.x)) <= 1):
-                return False
+                raise InvalidMove
             if not (step_to.y == Y[3] and step_to.x == self.__current_point__.x):
-                return False
+                raise InvalidMove
             if not (step_to.y - self.__current_point__.y == 1 and math.fabs(step_to.x - self.__current_point__.x) <= 1):
-                return False
+                raise InvalidMove
         if (self.__color__ == COLOR_BLACK) and (self.__current_point__.y == Y[-2]):
             if not (step_to.y == Y[-3] and math.fabs(ord(step_to.x) - ord(self.__current_point__.x)) <= 1):
-                return False
+                raise InvalidMove
             if not (step_to.y == Y[-4] and step_to.x == self.__current_point__.x):
-                return False
+                raise InvalidMove
             if not (self.__current_point__.y - step_to.y == 1 and math.fabs(ord(step_to.x) - ord(self.__current_point__.x)) <= 1):
-                return False
+                raise InvalidMove
         return True
 
 
