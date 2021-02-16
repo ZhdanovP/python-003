@@ -1,8 +1,10 @@
 """A simple chess piece algorithms."""
+from abc import ABC, abstractmethod
 
 
-class ChessPiece:
+class ChessPiece(ABC):
     """The base class for chess figures"""
+    __slots__ = ['color']
 
     def __init__(self, color, position):
         """
@@ -29,8 +31,9 @@ class ChessPiece:
         all_moves = self.get_all_possible_moves(board)
         return possible_move in all_moves
 
+    @abstractmethod
     def get_all_possible_moves(self, board):
-        return []
+        return NotImplemented
 
     def perform_move(self, board, move):
         """
