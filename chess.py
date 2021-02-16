@@ -1,7 +1,8 @@
 """Chess game, python implementation"""
+from abc import ABC, abstractmethod
 
 
-class ChessPiece:
+class ChessPiece(ABC):
     """Superclass for all chess pieces."""
 
     image = None
@@ -12,7 +13,9 @@ class ChessPiece:
     def __str__(self):
         return self.image[0 if self.color == Color.WHITE else 1]
 
+    @abstractmethod
     def step(self):
+        """Abstract method"""
         pass
 
     def get_available_moves(self, board, x, y):
@@ -45,17 +48,26 @@ class Queen(ChessPiece):
     single direction, as long there is no piece blocks that path."""
     image = (' ♕ ', ' ♛ ')
 
+    def step(self):
+        pass
+
 
 class Rook(ChessPiece):
     """Rook class implementation. The rook can move as many squares, forwards,
     backwards, or sideways, as long as there is no piece blocking that path."""
     image = (' ♖ ', ' ♜ ')
 
+    def step(self):
+        pass
+
 
 class Bishop(ChessPiece):
     """Bishop class implementation. The bishop can move as many squares, in a
     diagonal path, as long as there is no piece blocks that path."""
     image = (' ♗ ', ' ♝ ')
+
+    def step(self):
+        pass
 
 
 class Knight(ChessPiece):
@@ -64,6 +76,9 @@ class Knight(ChessPiece):
     Unlike other pieces, the Knight can jump other pieces that are in it's
     path."""
     image = (' ♘ ', ' ♞ ')
+
+    def step(self):
+        pass
 
 
 class Pawn(ChessPiece):
@@ -75,10 +90,16 @@ class Pawn(ChessPiece):
      one, as long as it does not inferior with the previous rule."""
     image = (' ♙ ', ' ♟ ')
 
+    def step(self):
+        pass
+
 
 class King(ChessPiece):
     """King class docstring. The King can move one square in any direction"""
     image = (' ♔ ', ' ♚ ')
+
+    def step(self):
+        pass
 
 
 class Board:
@@ -123,6 +144,7 @@ class Board:
         for i in range(8):
             res += ''.join(map(str, self.board[i])) + '\n'
         return res
+
 
 
 b = Board()
