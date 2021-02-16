@@ -13,6 +13,8 @@ class ChessPiece(ABC):
     def __str__(self):
         return self.image[0 if self.color == Color.WHITE else 1]
 
+    __slots__ = 'color'
+
     @abstractmethod
     def step(self):
         """Abstract method"""
@@ -33,6 +35,7 @@ class Color:
 
 
 class Empty:
+
     color = Color.EMPTY
 
     def get_available_moves(self, board, x, y):
@@ -40,7 +43,7 @@ class Empty:
         raise Exception('No piece on this position -x:{}, y:{}'.format(x, y))
 
     def __str__(self):
-        return ' # '
+        return ' #  '
 
 
 class Queen(ChessPiece):
@@ -128,6 +131,8 @@ class Board:
                     Color.BLACK), King(Color.WHITE)
             except:
                 continue
+
+    __slots__ = 'board'
 
     def get_color(self, x, y):
         return self.board[y][x].color
