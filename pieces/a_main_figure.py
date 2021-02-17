@@ -32,7 +32,10 @@ class Figure(object):
         pass
 
     @abstractmethod
-    def get_color(self):
+    def get_color(self) -> str:
+        """
+        :return: color of figure (black or white)
+        """
         pass
 
     @abstractmethod
