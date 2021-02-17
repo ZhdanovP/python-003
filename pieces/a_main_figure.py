@@ -31,6 +31,7 @@ class Figure(object):
         """
         pass
 
+    @abstractmethod
     def get_color(self):
         pass
 

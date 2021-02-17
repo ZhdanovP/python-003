@@ -5,7 +5,7 @@ class Knight(Figure):
     __COUNT = 2
     __PLACES = {'black': ('C', 1), 'white': ('C', 2)}
 
-    __slots__ = ('color', 'name', 'current_pos')
+    __slots__ = ('name', 'current_place')
 
     def __init__(self, color):
         super().__init__(color=color,
@@ -13,7 +13,7 @@ class Knight(Figure):
                          figure_type_cnt=self.__COUNT)
         self.name = 'Knight'
         self.color = color
-        self.current_pos = self.get_current_position()
+        self.current_place = self.get_current_position()
 
     def step(self, coordinates: tuple):
         pass
