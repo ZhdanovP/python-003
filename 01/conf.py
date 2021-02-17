@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 
 project = 'chess'
-copyright = '2021, tarasG'
-author = 'tarasG'
+copyright = '2021, tgurtove'
+author = 'tgurtove'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.3'
+release = '0.07'
 
 
 # -- General configuration ---------------------------------------------------

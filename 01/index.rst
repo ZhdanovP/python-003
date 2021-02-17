@@ -1,5 +1,5 @@
 .. chess documentation master file, created by
-   sphinx-quickstart on Tue Feb 16 10:44:46 2021.
+   sphinx-quickstart on Wed Feb 17 03:06:59 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -10,9 +10,12 @@ Welcome to chess's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-.. automodule:: ches_not_oop2
 
+.. automodule::  game
+	:members:
 
+.. automodule::  pieces
+	:members:
 Indices and tables
 ==================
 
