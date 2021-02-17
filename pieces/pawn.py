@@ -1,7 +1,7 @@
-import a_main_figure
+from a_main_figure import Figure
 
 
-class Pawn(a_main_figure.Figure):
+class Pawn(Figure):
     __COUNT = 2
     __PLACES = {'black': ('A', 1), 'white': ('A', 2)}
 

@@ -1,7 +1,7 @@
-import a_main_figure
+from a_main_figure import Figure
 
 
-class Bishop(a_main_figure.Figure):
+class Bishop(Figure):
     __COUNT = 2
     __PLACES = {'white': (('C', 1), ('F', 1)), 'black': (('C', 8), ('F', 8))}
 

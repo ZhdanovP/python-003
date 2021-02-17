@@ -1,7 +1,7 @@
-import a_main_figure
+from a_main_figure import Figure
 
 
-class Rook(a_main_figure.Figure):
+class Rook(Figure):
     __COUNT = 2
     __PLACES = {'white': ('B', 1), 'black': ('B', 2)}
 

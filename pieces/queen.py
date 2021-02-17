@@ -1,7 +1,7 @@
-import a_main_figure
+from a_main_figure import Figure
 
 
-class Queen(a_main_figure.Figure):
+class Queen(Figure):
     __COUNT = 1
     __PLACES = {'white': ('E', 1), 'black': ('E', 8)}
 

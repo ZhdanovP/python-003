@@ -1,7 +1,7 @@
-import a_main_figure
+from a_main_figure import Figure
 
 
-class Knight(a_main_figure.Figure):
+class Knight(Figure):
     __COUNT = 2
     __PLACES = {'black': ('C', 1), 'white': ('C', 2)}
 
