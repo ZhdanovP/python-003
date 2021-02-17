@@ -1,5 +1,5 @@
-from figures import Pawn, King, Qeen, Board
-import tests
+from myfigures.figures import Pawn, King, Qeen, Board
+from mytests import tests
 
 """Module simulates chess board with 8 random figures
  and their movement"""
