@@ -17,6 +17,9 @@ class Queen(Figure):
     def step(self, coordinates: tuple):
         pass
 
+    def get_color(self):
+        return self.color
+
     def get_current_position(self, chess_id: int = None) -> tuple:
         return ()
 

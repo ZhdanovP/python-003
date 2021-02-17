@@ -31,6 +31,9 @@ class Figure(object):
         """
         pass
 
+    def get_color(self):
+        pass
+
     @abstractmethod
     def get_current_position(self, chess_id: int) -> tuple:
         """
