@@ -1,4 +1,4 @@
-def test_0(b1):
+def test_board(b1):
     print("Test Board")
     i = 7
     while i > -1:
@@ -6,7 +6,7 @@ def test_0(b1):
         i -= 1
 
 
-def test_1(p1):
+def test_pawn(p1):
     print("Test Pawn")
     print(p1.step(3, 4))
     print(p1.step(3, 3))
@@ -19,7 +19,7 @@ def test_1(p1):
     print(p1.step(-1, 2))
 
 
-def test_2(k1):
+def test_king(k1):
     print("Test King")
     print(k1.step(3, 2))
     print(k1.step(3, 4))
@@ -32,7 +32,7 @@ def test_2(k1):
     print(k1.step(-1, 2))
 
 
-def test_3(q1):
+def test_qeen(q1):
     print("Test Qeen")
     print(q1.step(0, 0))
     print(q1.step(7, 7))

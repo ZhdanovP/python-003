@@ -6,15 +6,15 @@ from mytests import tests
 
 # Execute Some tests
 b1 = Board()
-tests.test_0(b1)
+tests.test_board(b1)
 
 p1 = Pawn(3, 3)
-tests.test_1(p1)
+tests.test_pawn(p1)
 
 k1 = King(3, 3)
-tests.test_2(k1)
+tests.test_king(k1)
 
 q1 = Qeen(3, 3)
-tests.test_3(q1)
+tests.test_qeen(q1)
 
 
