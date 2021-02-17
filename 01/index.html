@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to chess’s documentation! &#8212; chess 0.07 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-chess-s-documentation">
+<h1>Welcome to chess’s documentation!<a class="headerlink" href="#welcome-to-chess-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-game"></span><dl class="py class">
+<dt id="game.Game">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">game.</span></code><code class="sig-name descname"><span class="pre">Game</span></code><a class="headerlink" href="#game.Game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Board build, business logic, user input processing, run processing,</p>
+</dd></dl>
+
+<span class="target" id="module-pieces"></span><dl class="py class">
+<dt id="pieces.Bishop">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pieces.</span></code><code class="sig-name descname"><span class="pre">Bishop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pieces.Bishop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="pieces.King">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pieces.</span></code><code class="sig-name descname"><span class="pre">King</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pieces.King" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="pieces.Knight">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pieces.</span></code><code class="sig-name descname"><span class="pre">Knight</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pieces.Knight" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="pieces.Pawn">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pieces.</span></code><code class="sig-name descname"><span class="pre">Pawn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pieces.Pawn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="pieces.Piece">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pieces.</span></code><code class="sig-name descname"><span class="pre">Piece</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pieces.Piece" title="Permalink to this definition">¶</a></dt>
+<dd><p>base for piceces creation,
+allowed forbidden moves runs</p>
+<dl class="py method">
+<dt id="pieces.Piece.AdNauseum">
+<code class="sig-name descname"><span class="pre">AdNauseum</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gameboard</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pieces.Piece.AdNauseum" title="Permalink to this definition">¶</a></dt>
+<dd><p>repeats the given interval until another piece is run into. 
+if that piece is not of the same color, that square is added and</p>
+<blockquote>
+<div><p>then the list is returned</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pieces.Piece.isInBounds">
+<code class="sig-name descname"><span class="pre">isInBounds</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pieces.Piece.isInBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if a position is on the board</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pieces.Piece.noConflict">
+<code class="sig-name descname"><span class="pre">noConflict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameboard</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initialColor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pieces.Piece.noConflict" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if a single position poses no conflict to the rules of chess</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="pieces.Queen">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pieces.</span></code><code class="sig-name descname"><span class="pre">Queen</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pieces.Queen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="pieces.Rook">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pieces.</span></code><code class="sig-name descname"><span class="pre">Rook</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pieces.Rook" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pieces.knightList">
+<code class="sig-prename descclassname"><span class="pre">pieces.</span></code><code class="sig-name descname"><span class="pre">knightList</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pieces.knightList" title="Permalink to this definition">¶</a></dt>
+<dd><p>sepcifically for the rook, permutes the values needed around a position for noConflict tests</p>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">chess</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, tgurtove.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
