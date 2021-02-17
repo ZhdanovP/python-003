@@ -24,7 +24,7 @@ class Figure(object):
         self.default_places = default_places
 
     @abstractmethod
-    def step(self, coordinates: tuple):
+    def step(self, coordinates: tuple) -> None:
         """
         Trying to move figure to specified coordinates X and Y
         where X is chessboard Letter, and Y is number from 1 to 8
@@ -32,7 +32,7 @@ class Figure(object):
         pass
 
     @abstractmethod
-    def get_current_position(self):
+    def get_current_position(self) -> tuple:
         """
         :return: current position of figure on field in format:
             {letter}, {number}
@@ -40,7 +40,7 @@ class Figure(object):
         pass
 
     @abstractmethod
-    def get_default_position(self):
+    def get_default_position(self) -> tuple:
         """
         :return: default position of figure on field in format:
             {letter}, {number}
@@ -48,11 +48,15 @@ class Figure(object):
 
 
 class Pawn(Figure):
+    COUNT = 2
+    PLACES = (('A', 1), ('A', 2))
+
     __slots__ = ('color', 'name', 'current_pos')
 
     def __init__(self, color):
         super().__init__(color=color,
-                         default_position=('A', 2))
+                         default_places=self.PLACES,
+                         figure_type_cnt=self.COUNT)
         self.name = 'Pawn'
         self.color = color
         self.current_pos = self.get_current_position()
@@ -68,10 +72,15 @@ class Pawn(Figure):
 
 
 class Rook(Figure):
+    COUNT = 2
+    PLACES = (('B', 1), ('B', 2))
+
     __slots__ = ('color', 'name', 'current_pos')
 
     def __init__(self, color):
-        super().__init__(color=color, default_position=('B', 2))
+        super().__init__(color=color,
+                         default_places=self.PLACES,
+                         figure_type_cnt=self.COUNT)
         self.name = 'Rook'
         self.color = color
         self.current_pos = self.get_current_position()
@@ -87,10 +96,15 @@ class Rook(Figure):
 
 
 class Knight(Figure):
+    COUNT = 2
+    PLACES = (('C', 1), ('C', 2))
+
     __slots__ = ('color', 'name', 'current_pos')
 
     def __init__(self, color):
-        super().__init__(color=color, default_position=('C', 2))
+        super().__init__(color=color,
+                         default_places=self.PLACES,
+                         figure_type_cnt=self.COUNT)
         self.name = 'Knight'
         self.color = color
         self.current_pos = self.get_current_position()
@@ -106,10 +120,15 @@ class Knight(Figure):
 
 
 class Bishop(Figure):
+    COUNT = 2
+    PLACES = (('D', 1), ('D', 2))
+
     __slots__ = ('color', 'name', 'current_pos')
 
     def __init__(self, color):
-        super().__init__(color=color, default_position=('D', 2))
+        super().__init__(color=color,
+                         default_places=self.PLACES,
+                         figure_type_cnt=self.COUNT)
         self.name = 'Bishop'
         self.color = color
         self.current_pos = self.get_current_position()
@@ -125,10 +144,15 @@ class Bishop(Figure):
 
 
 class King(Figure):
+    COUNT = 2
+    PLACES = (('E', 1), ('E', 2))
+
     __slots__ = ('color', 'name', 'current_pos')
 
     def __init__(self, color):
-        super().__init__(color=color, default_position=('E', 2))
+        super().__init__(color=color,
+                         default_places=self.PLACES,
+                         figure_type_cnt=self.COUNT)
         self.name = 'King'
         self.color = color
         self.current_pos = self.get_current_position()
@@ -145,7 +169,7 @@ class King(Figure):
 
 class Queen(Figure):
     COUNT = 2
-    PLACES = (('A', 1), ('A', 2))
+    PLACES = (('F', 1), ('F', 2))
 
     __slots__ = ('name', 'current_place')
 
@@ -162,7 +186,7 @@ class Queen(Figure):
     def get_current_position(self, id_: int = None) -> tuple:
         return 'A', 5
 
-    def get_default_position(self, id_: int) -> tuple:
+    def get_default_position(self, id_: int = None) -> tuple:
         pass
 
 
