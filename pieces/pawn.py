@@ -3,13 +3,13 @@ import a_main_figure
 
 class Pawn(a_main_figure.Figure):
     __COUNT = 2
-    __PLACES = (('A', 1), ('A', 2))
+    __PLACES = {'black': ('A', 1), 'white': ('A', 2)}
 
     __slots__ = ('color', 'name', 'current_pos')
 
     def __init__(self, color):
         super().__init__(color=color,
-                         default_places=self.__PLACES,
+                         default_places=self.__PLACES[color],
                          figure_type_cnt=self.__COUNT)
         self.name = 'Pawn'
         self.color = color
