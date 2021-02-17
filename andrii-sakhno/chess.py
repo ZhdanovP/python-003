@@ -1,4 +1,5 @@
 import random
+from abc import ABC, abstractmethod
 """The module "chess" implements the game of chess in the console"""
 
 # Figure type
@@ -13,13 +14,6 @@ FT_KING = "K"
 PC_WHITE = "w"
 PC_BLACK = "b"
 
-# Figure init lines
-FIL_WHITE_MAIN = 0
-FIL_WHITE_PAWNS = 1
-
-FIL_BLACK_MAIN = 7
-FIL_BLACK_PAWNS = 6
-
 # Board size
 BOARD_SIZE = 8
 
@@ -27,11 +21,12 @@ BOARD_SIZE = 8
 LETTER_LIST = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 
 
-class Figure:
+class Figure(ABC):
     """Base class for figure"""
     def __init__(self, figure_type="", color=""):
+        __slots__ = ("_figure_type", "_color")
         self._figure_type = figure_type
-        self.color = color
+        self._color = color
 
     def figure_type(self):
         """The function returns type of figure"""
@@ -39,22 +34,28 @@ class Figure:
 
     def is_white(self):
         """The function returns True if figure is white"""
-        return self.color == PC_WHITE
+        return self._color == PC_WHITE
 
     def is_black(self):
         """The function returns True if figure is black"""
-        return self.color == PC_BLACK
+        return self._color == PC_BLACK
 
     def symbol(self):
         """The function returns the graphic symbol of the figure"""
-        return self.color + self._figure_type
+        return self._color + self._figure_type
 
-    def check_step(self, start_x, start_y, finish_x, finish_y):
+    @staticmethod
+    def _check_for_skip_move(start_x, start_y, finish_x, finish_y):
         """The function returns the True if the move satisfies the common rules"""
         # check for skip turn
         if start_x != finish_x or start_y != finish_y:
             return True
         return False
+
+    @abstractmethod
+    def check_step(self, start_x, start_y, finish_x, finish_y):
+        """Interface function for checking move capability"""
+        pass
 
 
 # TODO: implement first move for 2 cell
@@ -66,7 +67,7 @@ class FigurePawn(Figure):
 
     def check_step(self, start_x, start_y, finish_x, finish_y):
         """The function returns True if the move satisfies the pawn rules"""
-        if not super().check_step(start_x, start_y, finish_x, finish_y):
+        if not super()._check_for_skip_move(start_x, start_y, finish_x, finish_y):
             return False
 
         # The pawn rook moves only one square along the vertical line.
@@ -86,7 +87,7 @@ class FigureRook(Figure):
 
     def check_step(self, start_x, start_y, finish_x, finish_y):
         """The function returns True if the move satisfies the rook rules"""
-        if not super().check_step(start_x, start_y, finish_x, finish_y):
+        if not super()._check_for_skip_move(start_x, start_y, finish_x, finish_y):
             return False
 
         # The rook moves only on horizontal or vertical lines
@@ -103,7 +104,7 @@ class FigureKnight(Figure):
 
     def check_step(self, start_x, start_y, finish_x, finish_y):
         """The function returns True if the move satisfies the knight rules"""
-        if not super().check_step(start_x, start_y, finish_x, finish_y):
+        if not super()._check_for_skip_move(start_x, start_y, finish_x, finish_y):
             return False
 
         # The knight can move two (three) squares in a straight line and three (two) squares to the side.
@@ -121,7 +122,7 @@ class FigureBishop(Figure):
 
     def check_step(self, start_x, start_y, finish_x, finish_y):
         """The function returns True if the move satisfies the bishop rules"""
-        if not super().check_step(start_x, start_y, finish_x, finish_y):
+        if not super()._check_for_skip_move(start_x, start_y, finish_x, finish_y):
             return False
 
         # The bishop only moves diagonally
@@ -138,7 +139,7 @@ class FigureQueen(Figure):
 
     def check_step(self, start_x, start_y, finish_x, finish_y):
         """The function returns True if the move satisfies the queen rules"""
-        if not super().check_step(start_x, start_y, finish_x, finish_y):
+        if not super()._check_for_skip_move(start_x, start_y, finish_x, finish_y):
             return False
 
         # The queen can walk like bishop
@@ -159,7 +160,7 @@ class FigureKing(Figure):
 
     def check_step(self, start_x, start_y, finish_x, finish_y):
         """The function returns True if the move satisfies the king rules"""
-        if not super().check_step(start_x, start_y, finish_x, finish_y):
+        if not super()._check_for_skip_move(start_x, start_y, finish_x, finish_y):
             return False
 
         # The king can walk only one square along
@@ -172,11 +173,9 @@ class FigureKing(Figure):
 class ChessBoard:
     """Class for chess board with players"""
     def __init__(self):
-        # self.player_white = PlayerFigures(PC_WHITE)
-        # self.player_black = PlayerFigures(PC_BLACK)
-        self.whiteTurn = True
-
-        self.board = [[0] * BOARD_SIZE for i in range(BOARD_SIZE)]
+        __slots__ = ("_whiteTurn", "_board")
+        self._whiteTurn = True
+        self._board = [[0] * BOARD_SIZE for i in range(BOARD_SIZE)]
 
     def new_game(self):
         """The function creates a new game and randomly places the figures"""
@@ -213,7 +212,7 @@ class ChessBoard:
         print("  -------------------------")
 
         i = 0
-        for x in self.board:
+        for x in self._board:
             row = ""
             for y in x:
                 row += '|' + ("  " if y == 0 else y.symbol())
@@ -222,37 +221,40 @@ class ChessBoard:
             print(f'{i}', row + "|")
             print("  -------------------------")
 
+        print("")
+        print(("White" if self._whiteTurn else "Black") + " turn")
+
     def make_move(self, start_position, finish_position):
         """The function processes the move"""
         # converting raw position
         start_x, start_y = self._convert_raw_position(start_position)
         if start_y == -1:
-            print("Wrong start position")
+            self._show_error("Wrong start position")
             return False
 
         finish_x, finish_y = self._convert_raw_position(finish_position)
         if finish_y == -1:
-            print("Wrong finish position")
+            self._show_error("Wrong finish position")
             return False
 
         # trying to find a figure
         cur_figure = self._figure_find(start_x, start_y)
         if cur_figure == 0:
-            print("Figure not found!")
+            self._show_error("Figure not found!")
             return False
 
         # check that the figure is the correct color
-        if self.whiteTurn and cur_figure.is_black():
-            print("Please move white figure")
+        if self._whiteTurn and cur_figure.is_black():
+            self._show_error("Please move white figure")
             return False
 
-        if not self.whiteTurn and cur_figure.is_white():
-            print("Please move black figure")
+        if not self._whiteTurn and cur_figure.is_white():
+            self._show_error("Please move black figure")
             return False
 
         # check that the figure's move is correct
         if not cur_figure.check_step(start_x, start_y, finish_x, finish_y):
-            print("This figure cannot walk like that ")
+            self._show_error("This figure cannot walk like that ")
             return False
 
         # check the absence of obstacles
@@ -266,7 +268,7 @@ class ChessBoard:
         # move the figure
         self._move_figure_to(cur_figure, start_x, start_y, finish_x, finish_y)
 
-        self.whiteTurn = not self.whiteTurn
+        self._whiteTurn = not self._whiteTurn
 
     def _random_place_figure_on_bord(self, figure):
         """Function for placing a figure in a random cell """
@@ -277,12 +279,12 @@ class ChessBoard:
             pos_x = random.randint(indent, BOARD_SIZE-1-indent)
             pos_y = random.randint(0, BOARD_SIZE-1)
             if not self._figure_find(pos_x, pos_y):
-                self.board[pos_x][pos_y] = figure
+                self._board[pos_x][pos_y] = figure
                 break
 
     def _figure_find(self, pos_x, pos_y):
         """Function for finding a figure by coordinates"""
-        return self.board[pos_x][pos_y]
+        return self._board[pos_x][pos_y]
 
     def _check_target(self, finish_x, finish_y):
         """Function for checking the target cell"""
@@ -293,13 +295,13 @@ class ChessBoard:
             return True
 
         # It is forbidden to beat own figures
-        if target_figure.is_white() == self.whiteTurn:
-            print("You can't beat your own figures")
+        if target_figure.is_white() == self._whiteTurn:
+            self._show_error("You can't beat your own figures")
             return False
 
         # It is forbidden to beat own figures
         if target_figure.figure_type() == FT_KING:
-            print("You can't beat the king")
+            self._show_error("You can't beat the king")
             return False
 
         return True
@@ -319,25 +321,35 @@ class ChessBoard:
         return int(raw_position[1])-1, LETTER_LIST.index(raw_position[0].upper())
 
     def _move_figure_to(self, figure, start_x, start_y, finish_x, finish_y):
-        self.board[finish_x][finish_y] = figure
-        self.board[start_x][start_y] = 0
+        self._board[finish_x][finish_y] = figure
+        self._board[start_x][start_y] = 0
+
+    @staticmethod
+    def _show_error(error_text):
+        print("")
+        print('*'*(len(error_text)+4))
+        print("* " + error_text + " *")
+        print('*' * (len(error_text)+4))
+        print("")
 
 
-board = ChessBoard()
+if __name__ == "__main__":
+    board = ChessBoard()
 
-board.new_game()
-print("Enter 'q' to close chess")
+    board.new_game()
+    print("Enter 'q' to close chess")
 
-while True:
-    print("")
-    board.bord_draw()
-    position_start = input("Please type figure start position to move (example 'a1 or 'g7): ")
-    if position_start.lower() == 'q':
-        exit()
+    while True:
+        print("=======================================================================================================")
+        print("")
+        board.bord_draw()
+        print("")
+        position_start = input("Please type figure start position to move (example 'a1 or 'g7): ")
+        if position_start.lower() == 'q':
+            exit()
 
-    position_finish = input("Please type figure finish position to move (example 'a1 or 'g7): ")
-    if position_finish.lower() == 'q':
-        exit()
+        position_finish = input("Please type figure finish position to move (example 'a1 or 'g7): ")
+        if position_finish.lower() == 'q':
+            exit()
 
-    board.make_move(position_start, position_finish)
-
+        board.make_move(position_start, position_finish)
