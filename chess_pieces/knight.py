@@ -1,11 +1,13 @@
-from chess_piece import ChessPiece
+"""Contains a single `Knight` class which represents a knight on a chess board."""
 
+from .chess_piece import ChessPiece
 
 
 class Knight(ChessPiece):
     """
     Represents a knight on a chess board.
     """
+
     def __init__(self, color, position):
         super(Knight, self).__init__(color, position)
 

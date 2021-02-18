@@ -1,6 +1,6 @@
 """A simple chess piece algorithms."""
-from knight import Knight
-from pawn import Pawn
+from chess_pieces.knight import Knight
+from chess_pieces.pawn import Pawn
 
 
 def setup_empty_board():

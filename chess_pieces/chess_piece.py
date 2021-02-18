@@ -1,9 +1,14 @@
+"""
+Contains a single `ChessPiece` class which is an abstract base class
+for all concrete chess pieces.
+"""
+
 from abc import ABC, abstractmethod
 
 
 class ChessPiece(ABC):
-    """The base class for chess figures"""
-    __slots__ = ['color']
+    """The base class for chess figures."""
+    __slots__ = ('been_adversary', 'color', 'position')
 
     def __init__(self, color, position):
         """
@@ -11,13 +16,20 @@ class ChessPiece(ABC):
         :param color: A color of a piece, could be 'W' or 'B'.
         :param position: A tuple describing a position of a piece in a form (row, col), e.g. E2 is (1, 4).
         """
+        self.been_adversary = False     # The previous position sent to in_bounds was an adversary.
         self.color = color
         self.position = position
 
     def get_color(self):
+        """
+        :return: Color of the chess piece.
+        """
         return self.color
 
     def get_position(self):
+        """
+        :return: Position of the chess piece.
+        """
         return self.position
 
     def step(self, board, possible_move):
@@ -32,7 +44,14 @@ class ChessPiece(ABC):
 
     @abstractmethod
     def get_all_possible_moves(self, board):
-        return NotImplemented
+        """
+        Should calculates and return all possible moves of a concrete piece instance
+        for a given board.
+        :param board: A board for which all possible moves should be calculated.
+        :return: All possible moves of this chess piece instance in a form of
+        a list of tuples like (row, col).
+        """
+        pass
 
     def perform_move(self, board, move):
         """
@@ -78,8 +97,3 @@ class ChessPiece(ABC):
 
     def __str__(self):
         return self.color
-
-    position = ()
-
-    # The previous position sent to in_bounds was an adversary.
-    been_adversary = False

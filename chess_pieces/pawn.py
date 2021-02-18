@@ -1,4 +1,6 @@
-from chess_piece import ChessPiece
+"""Contains a single `Pawn` class which represents a pawn on a chess board."""
+
+from .chess_piece import ChessPiece
 
 
 class Pawn(ChessPiece):
