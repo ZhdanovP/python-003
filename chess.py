@@ -1,3 +1,5 @@
+from symbol import decorator
+
 from myfigures.figures import Pawn, King, Qeen
 from mytests import tests
 import random
@@ -17,6 +19,7 @@ class Board:
 
 # Execute Some tests
 b1 = Board()
+
 tests.test_board(b1)
 
 p1 = Pawn(3, 3)
