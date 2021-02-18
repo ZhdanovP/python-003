@@ -1,5 +1,6 @@
 # This sample receive from https://pymotw.com/3/socket/tcp.html
 import socket
+import time
 import sys
 
 # Create a TCP/IP socket
@@ -12,7 +13,7 @@ sock.connect(server_address)
 
 try:
 
-    # Send data
+    # Send file request
     message = b'GET:data.txt'
     print('sending {!r}'.format(message))
     sock.sendall(message)
