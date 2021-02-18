@@ -15,10 +15,15 @@ class Board:
     for i in range(8):
         d[i] = [0] * 8
     for i in range(8):
-        d[i][random.randint(0, 7)] = 1
+        d[i][i] = 0
+    def rand(self):
+        for i in range(8):
+            self.d[i][random.randint(0, 7)] = 1
+
 
 # Execute Some tests
 b1 = Board()
+b1.rand()
 
 tests.test_board(b1)
 
