@@ -9,13 +9,17 @@ import random
 
 
 class Board:
-    """ Generating vhess board with
+    """ Generating chess board with
         random 8 figures"""
-    d = [0] * 8
-    for i in range(8):
-        d[i] = [0] * 8
-    for i in range(8):
-        d[i][i] = 0
+    d = list()
+
+    def empty(self):
+        self.d = [0] * 8
+        for i in range(8):
+            self.d[i] = [0] * 8
+        for i in range(8):
+            self.d[i][i] = 0
+
     def rand(self):
         for i in range(8):
             self.d[i][random.randint(0, 7)] = 1
@@ -23,8 +27,8 @@ class Board:
 
 # Execute Some tests
 b1 = Board()
+b1.empty()
 b1.rand()
-
 tests.test_board(b1)
 
 p1 = Pawn(3, 3)
