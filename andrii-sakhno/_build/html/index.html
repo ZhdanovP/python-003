@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to chess’s documentation! &#8212; chess  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-chess-s-documentation">
+<h1>Welcome to chess’s documentation!<a class="headerlink" href="#welcome-to-chess-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-chess"></span><dl class="py class">
+<dt id="chess.ChessBoard">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">ChessBoard</span></code><a class="headerlink" href="#chess.ChessBoard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for chess board with players</p>
+<dl class="py method">
+<dt id="chess.ChessBoard.bord_draw">
+<code class="sig-name descname"><span class="pre">bord_draw</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chess.ChessBoard.bord_draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function redraws the position of the figures</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chess.ChessBoard.make_move">
+<code class="sig-name descname"><span class="pre">make_move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.ChessBoard.make_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function processes the move</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chess.ChessBoard.new_game">
+<code class="sig-name descname"><span class="pre">new_game</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chess.ChessBoard.new_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function creates a new game and randomly places the figures</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="chess.Figure">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">Figure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figure_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.Figure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for figure</p>
+<dl class="py method">
+<dt id="chess.Figure.check_step">
+<code class="sig-name descname"><span class="pre">check_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.Figure.check_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function returns the True if the move satisfies the common rules</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chess.Figure.figure_type">
+<code class="sig-name descname"><span class="pre">figure_type</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chess.Figure.figure_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function returns type of figure</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chess.Figure.is_black">
+<code class="sig-name descname"><span class="pre">is_black</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chess.Figure.is_black" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function returns True if figure is black</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chess.Figure.is_white">
+<code class="sig-name descname"><span class="pre">is_white</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chess.Figure.is_white" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function returns True if figure is white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chess.Figure.symbol">
+<code class="sig-name descname"><span class="pre">symbol</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chess.Figure.symbol" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function returns the graphic symbol of the figure</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="chess.FigureBishop">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">FigureBishop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigureBishop" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class for bishop</p>
+<dl class="py method">
+<dt id="chess.FigureBishop.check_step">
+<code class="sig-name descname"><span class="pre">check_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigureBishop.check_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function returns True if the move satisfies the bishop rules</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="chess.FigureKing">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">FigureKing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigureKing" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class for king</p>
+<dl class="py method">
+<dt id="chess.FigureKing.check_step">
+<code class="sig-name descname"><span class="pre">check_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigureKing.check_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function returns True if the move satisfies the king rules</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="chess.FigureKnight">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">FigureKnight</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigureKnight" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class for knight</p>
+<dl class="py method">
+<dt id="chess.FigureKnight.check_step">
+<code class="sig-name descname"><span class="pre">check_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigureKnight.check_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function returns True if the move satisfies the knight rules</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="chess.FigurePawn">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">FigurePawn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigurePawn" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class for pawn</p>
+<dl class="py method">
+<dt id="chess.FigurePawn.check_step">
+<code class="sig-name descname"><span class="pre">check_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigurePawn.check_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function returns True if the move satisfies the pawn rules</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="chess.FigureQueen">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">FigureQueen</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigureQueen" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class for queen</p>
+<dl class="py method">
+<dt id="chess.FigureQueen.check_step">
+<code class="sig-name descname"><span class="pre">check_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigureQueen.check_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function returns True if the move satisfies the queen rules</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="chess.FigureRook">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">FigureRook</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigureRook" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class for rook</p>
+<dl class="py method">
+<dt id="chess.FigureRook.check_step">
+<code class="sig-name descname"><span class="pre">check_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.FigureRook.check_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function returns True if the move satisfies the rook rules</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">chess</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Andrii Sakhno.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
