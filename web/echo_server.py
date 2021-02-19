@@ -31,10 +31,9 @@ while True:
             if data == b'GET:data.txt':
                 print('sending file to the client')
                 file_data = ""
-                f = open("data.txt", "r")
-                for x in f:
-                    file_data = file_data + x
-                f.close()
+                with open("data.txt", "r") as f:
+                    for x in f:
+                        file_data = file_data + x
                 print(file_data)
                 bf_data = bytes(file_data, 'ascii')
                 connection.sendall(bf_data)
