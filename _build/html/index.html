@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to ChessPieces’s documentation! &#8212; ChessPieces  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-chesspieces-s-documentation">
+<h1>Welcome to ChessPieces’s documentation!<a class="headerlink" href="#welcome-to-chesspieces-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-chess"></span><p>A simple chess piece algorithms.</p>
+<dl class="py class">
+<dt id="chess.ChessPiece">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">ChessPiece</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.ChessPiece" title="Permalink to this definition">¶</a></dt>
+<dd><p>The base class for chess figures</p>
+<dl class="py method">
+<dt id="chess.ChessPiece.in_bounds">
+<code class="sig-name descname"><span class="pre">in_bounds</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.ChessPiece.in_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True only if ‘new_pos’ is not occupied or occupied by an
+adversary. Additionally, the previous position sent to ‘in_bounds’
+must not have contained an adversary.
+:param board: A chess board.
+:param new_pos: A position to check.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chess.ChessPiece.perform_move">
+<code class="sig-name descname"><span class="pre">perform_move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">move</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.ChessPiece.perform_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves a piece instance to a given new position.
+:param board: A board where movement is performed.
+:param move: A new position for a piece in the form of (row, col).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chess.ChessPiece.step">
+<code class="sig-name descname"><span class="pre">step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">possible_move</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.ChessPiece.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a given move possible in a given board.
+:param board: A chess board to check on.
+:param possible_move: A move to check.
+:return: True if a given move is possible, False otherwise.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="chess.Knight">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">Knight</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.Knight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a knight on a chess board.</p>
+<dl class="py method">
+<dt id="chess.Knight.get_all_possible_moves">
+<code class="sig-name descname"><span class="pre">get_all_possible_moves</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.Knight.get_all_possible_moves" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all possible moves of this Knight instance for a given chess board.
+:param board: A chess board to check on.
+:return: All possible moves of this Knight instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="chess.Pawn">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">Pawn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.Pawn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a pawn on a chess board.</p>
+<dl class="py method">
+<dt id="chess.Pawn.get_all_possible_moves">
+<code class="sig-name descname"><span class="pre">get_all_possible_moves</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chess.Pawn.get_all_possible_moves" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all possible moves of this Pawn instance for a given chess board.
+:param board: A chess board to check on.
+:return: All possible moves of this Pawn instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="chess.setup_empty_board">
+<code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">setup_empty_board</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chess.setup_empty_board" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of 8 lists each containing an 8 empty slots.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="chess.test_black_pawn">
+<code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">test_black_pawn</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chess.test_black_pawn" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple test for a black pawn.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="chess.test_left_white_knight">
+<code class="sig-prename descclassname"><span class="pre">chess.</span></code><code class="sig-name descname"><span class="pre">test_left_white_knight</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chess.test_left_white_knight" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple test for a left white knight.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">ChessPieces</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Nataliia Petrova.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
